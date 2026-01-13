@@ -162,14 +162,3 @@ Feel free to open issues or submit pull requests to improve design, performance,
 ## 🏁 Final Note
 
 This project is built as a **marketing-first SaaS landing page**, designed to communicate value instantly while remaining flexible for future growth.
-
----
-
-If you want, I can also:
-
--   Add **screenshots & GIF placeholders**
--   Create a **deployment guide**
--   Write a **CONTRIBUTING.md**
--   Optimize the README for **GitHub SEO**
-
-Just tell me 👍
