@@ -15,7 +15,7 @@ COPY . .
 RUN composer dump-autoload --optimize
 
 # ---- Runtime ----
-FROM php:8.3-fpm-alpine
+FROM php:8.4-fpm-alpine
 
 # System deps
 RUN apk add --no-cache nginx supervisor bash \
