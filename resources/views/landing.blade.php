@@ -13,6 +13,7 @@
                     colors: {
                         primary: '#3E4095',
                         secondary: '#FF6600',
+                        'blue-900': '#1e3a8a',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -53,7 +54,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative bg-linear-to-br from-primary to-blue-900 text-white overflow-hidden">
+    <section class="relative bg-gradient-to-br from-primary to-blue-900 text-white overflow-hidden">
         <div class="absolute inset-0 opacity-10">
             <div class="absolute top-20 left-20 w-72 h-72 bg-white rounded-full blur-3xl"></div>
             <div class="absolute bottom-20 right-20 w-96 h-96 bg-secondary rounded-full blur-3xl"></div>
@@ -78,7 +79,7 @@
                 </div>
                 <div class="fade-in float" style="animation-delay: 0.4s;">
                     <div class="bg-white rounded-2xl shadow-2xl p-6">
-                        <div class="bg-linear-to-br from-gray-100 to-gray-200 rounded-xl p-6 space-y-4">
+                        <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6 space-y-4">
                             <div class="flex justify-between items-center">
                                 <span class="text-gray-600 font-medium">Today's Sales</span>
                                 <span class="text-3xl font-bold text-primary">$12,450</span>
@@ -358,7 +359,7 @@
     </section>
 
     <!-- Final CTA -->
-    <section class="py-24 bg-linear-to-br from-primary to-blue-900 text-white">
+    <section class="py-24 bg-gradient-to-br from-primary to-blue-900 text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-5xl font-bold mb-6">Run Your Business Smarter with Posly</h2>
             <p class="text-xl text-blue-100 mb-10">Join thousands of businesses already growing with Posly</p>
