@@ -3,33 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Posly - All-in-One POS & Inventory Management</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>TradeSimple - All-in-One POS & Inventory Management</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#3E4095',
-                        secondary: '#FF6600',
-                        'blue-900': '#1e3a8a',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
-        * { font-family: 'Inter', sans-serif; }
         .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
         @keyframes fadeIn { to { opacity: 1; } }
         .float { animation: float 3s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(62, 64, 149, 0.15); }
+        @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-15px) rotate(5deg); }
+    66% { transform: translateY(-8px) rotate(-5deg); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
     </style>
 </head>
 <body class="bg-gray-50">
@@ -38,23 +30,21 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <span class="text-2xl font-bold text-primary">Posly</span>
+                    <span class="text-2xl font-bold text-primary">TradeSimple</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#features" class="text-gray-700 hover:text-primary transition">Features</a>
                     <a href="#benefits" class="text-gray-700 hover:text-primary transition">Benefits</a>
-                    <a href="#pricing" class="text-gray-700 hover:text-primary transition">Pricing</a>
                 </div>
                 <div class="flex space-x-4">
-                    <button class="text-primary font-medium hover:text-opacity-80 transition">Sign In</button>
-                    <button class="bg-secondary text-white px-6 py-2 rounded-lg font-medium hover:bg-opacity-90 transition">Get Started</button>
+                    <button class="bg-secondary text-white px-6 py-2 rounded-lg font-medium hover:bg-opacity-90 transition">Request A Demo</button>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-primary to-blue-900 text-white overflow-hidden">
+    <section class="relative bg-linear-to-br from-primary to-blue-900 text-white overflow-hidden">
         <div class="absolute inset-0 opacity-10">
             <div class="absolute top-20 left-20 w-72 h-72 bg-white rounded-full blur-3xl"></div>
             <div class="absolute bottom-20 right-20 w-96 h-96 bg-secondary rounded-full blur-3xl"></div>
@@ -70,42 +60,75 @@
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <button class="bg-secondary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition shadow-lg hover:shadow-xl">
-                            Get Started
+                            Request A Demo
                         </button>
                         <button class="bg-white text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition">
-                            View Features
+                            <a href="#features">View Features</a>
                         </button>
                     </div>
                 </div>
-                <div class="fade-in float" style="animation-delay: 0.4s;">
-                    <div class="bg-white rounded-2xl shadow-2xl p-6">
-                        <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6 space-y-4">
-                            <div class="flex justify-between items-center">
-                                <span class="text-gray-600 font-medium">Today's Sales</span>
-                                <span class="text-3xl font-bold text-primary">$12,450</span>
-                            </div>
-                            <div class="grid grid-cols-3 gap-4">
-                                <div class="bg-white rounded-lg p-4 text-center">
-                                    <div class="text-2xl font-bold text-gray-800">156</div>
-                                    <div class="text-xs text-gray-500">Orders</div>
-                                </div>
-                                <div class="bg-white rounded-lg p-4 text-center">
-                                    <div class="text-2xl font-bold text-gray-800">$80</div>
-                                    <div class="text-xs text-gray-500">Avg Order</div>
-                                </div>
-                                <div class="bg-white rounded-lg p-4 text-center">
-                                    <div class="text-2xl font-bold text-secondary">+23%</div>
-                                    <div class="text-xs text-gray-500">Growth</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              <div class="fade-in flex items-center lg:justify-end " style="animation-delay: 0.4s;">
+    <div class="relative w-full max-w-md sm:max-w-xl lg:max-w-2xl h-[24rem] sm:h-[30rem] lg:h-[36rem] mx-auto">
+        <!-- Floating decorative elements -->
+        <div class="absolute -top-8 -left-8 w-20 h-20 opacity-20 animate-float" style="animation-delay: 0s;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#FFD700" d="M47.1,-57.8C59.9,-45.5,68.4,-29.3,71.5,-11.8C74.6,5.7,72.3,24.5,63.3,39.9C54.3,55.3,38.6,67.3,21.2,72.8C3.8,78.3,-15.3,77.3,-31.8,70.5C-48.3,63.7,-62.2,51.1,-69.8,35.3C-77.4,19.5,-78.7,0.5,-75.1,-17.3C-71.5,-35.1,-63,-51.7,-49.5,-63.8C-36,-75.9,-18,-83.5,-0.3,-83.1C17.4,-82.7,34.3,-70.1,47.1,-57.8Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+
+        <div class="absolute top-12 -right-12 w-16 h-16 opacity-15 animate-float" style="animation-delay: 1s;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#60A5FA" d="M39.5,-65.5C50.4,-56.5,58.1,-43.5,63.6,-29.3C69.1,-15.1,72.4,0.3,70.3,15.1C68.2,29.9,60.7,44.1,49.3,54.2C37.9,64.3,22.6,70.3,6.8,70.8C-9,71.3,-25.3,66.3,-38.8,56.8C-52.3,47.3,-63,33.3,-68.5,17.3C-74,1.3,-74.3,-16.7,-68.5,-31.5C-62.7,-46.3,-50.8,-57.9,-37.5,-66.3C-24.2,-74.7,-9.6,-79.9,3.5,-85.5C16.6,-91.1,28.6,-74.5,39.5,-65.5Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+
+        <div class="absolute bottom-16 -left-6 w-12 h-12 opacity-20 animate-float" style="animation-delay: 2s;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#34D399" d="M43.3,-72.8C54.9,-64.3,62.5,-49.4,67.7,-33.9C72.9,-18.4,75.7,-2.3,73.6,12.9C71.5,28.1,64.5,42.4,54.3,53.5C44.1,64.6,30.7,72.5,15.9,75.8C1.1,79.1,-15.1,77.8,-29.3,72.3C-43.5,66.8,-55.7,57.1,-64.5,44.9C-73.3,32.7,-78.7,18,-78.5,3.5C-78.3,-11,-72.5,-25.3,-63.5,-36.9C-54.5,-48.5,-42.3,-57.4,-29.1,-65.1C-15.9,-72.8,-1.7,-79.3,12.7,-78.9C27.1,-78.5,31.7,-81.3,43.3,-72.8Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+
+        <!-- Animated circles -->
+        <div class="absolute top-1/4 left-1/4 w-32 h-32 border-2 border-white/10 rounded-full animate-ping" style="animation-duration: 3s;"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-24 h-24 border-2 border-blue-300/10 rounded-full animate-ping" style="animation-duration: 4s; animation-delay: 1s;"></div>
+
+        <!-- Sparkle dots -->
+        <div class="absolute top-8 left-1/3 w-2 h-2 bg-yellow-300/60 rounded-full animate-pulse" style="animation-duration: 2s;"></div>
+        <div class="absolute top-1/3 right-12 w-3 h-3 bg-blue-300/60 rounded-full animate-pulse" style="animation-duration: 3s; animation-delay: 0.5s;"></div>
+        <div class="absolute bottom-1/3 left-16 w-2 h-2 bg-green-300/60 rounded-full animate-pulse" style="animation-duration: 2.5s; animation-delay: 1s;"></div>
+        <div class="absolute bottom-12 right-1/4 w-3 h-3 bg-purple-300/60 rounded-full animate-pulse" style="animation-duration: 3.5s;"></div>
+
+        <!-- Gradient glow effects -->
+        <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-blue-400/20 to-transparent rounded-full blur-3xl animate-pulse" style="animation-duration: 4s;"></div>
+        <div class="absolute bottom-0 left-0 w-56 h-56 bg-gradient-to-tr from-purple-400/20 to-transparent rounded-full blur-3xl animate-pulse" style="animation-duration: 5s; animation-delay: 1s;"></div>
+
+        <!-- Plus icons -->
+        <div class="absolute top-20 right-8 opacity-20 animate-float" style="animation-delay: 0.5s;">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C12.5523 2 13 2.44772 13 3V11H21C21.5523 11 22 11.4477 22 12C22 12.5523 21.5523 13 21 13H13V21C13 21.5523 12.5523 22 12 22C11.4477 22 11 21.5523 11 21V13H3C2.44772 13 2 12.5523 2 12C2 11.4477 2.44772 11 3 11H11V3C11 2.44772 11.4477 2 12 2Z"/>
+            </svg>
+        </div>
+
+        <div class="absolute bottom-24 left-12 opacity-15 animate-float" style="animation-delay: 1.5s;">
+            <svg class="w-6 h-6 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C12.5523 2 13 2.44772 13 3V11H21C21.5523 11 22 11.4477 22 12C22 12.5523 21.5523 13 21 13H13V21C13 21.5523 12.5523 22 12 22C11.4477 22 11 21.5523 11 21V13H3C2.44772 13 2 12.5523 2 12C2 11.4477 2.44772 11 3 11H11V3C11 2.44772 11.4477 2 12 2Z"/>
+            </svg>
+        </div>
+
+        <!-- Phone images -->
+        <div class="absolute left-0 top-1/2 w-[60%] sm:w-[55%] lg:w-[52%] z-10 -translate-y-1/2">
+            <img src="/assets/img/mobile-1.png" alt="Mobile POS interface angled left" class="w-full h-auto drop-shadow-[0_30px_60px_rgba(15,23,42,0.35)] object-contain" style="transform: perspective(1000px) rotateY(-16deg) translateY(-6px);">
+        </div>
+        <div class="absolute right-0 top-1/2 w-[60%] sm:w-[55%] lg:w-[52%] z-20 -translate-y-1/2">
+            <img src="/assets/img/mobile-2.png" alt="Mobile POS interface angled right" class="w-full h-auto drop-shadow-[0_35px_70px_rgba(15,23,42,0.4)] object-contain" style="transform: perspective(1000px) rotateY(16deg) translateY(6px);">
+        </div>
+    </div>
+</div>
             </div>
         </div>
     </section>
 
-    <!-- What Posly Is -->
+    <!-- What TradeSimple Is -->
     <section id="features" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -172,11 +195,11 @@
         </div>
     </section>
 
-    <!-- Why Posly (Benefits) -->
+    <!-- Why TradeSimple (Benefits) -->
     <section id="benefits" class="py-20 bg-linear-to-br from-gray-50 to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Businesses Choose Posly</h2>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Businesses Choose TradeSimple</h2>
                 <p class="text-xl text-gray-600">Benefits that drive real growth</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
@@ -258,57 +281,56 @@
     <!-- Feature Highlights -->
     <section class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold text-gray-900 mb-4">Powerful Features for Every Need</h2>
+                <p class="text-lg text-gray-600">Explore the product in action</p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold text-primary mb-4 flex items-center">
-                        <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
-                        Sales & POS
-                    </h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li>• Fast checkout process</li>
-                        <li>• Discounts, tax & shipping</li>
-                        <li>• Gorgeous invoices</li>
-                        <li>• Barcode scanning</li>
-                    </ul>
+            <div class="relative max-w-[1920px] mx-auto">
+                <div class="relative overflow-hidden rounded-2xl shadow-2xl bg-white">
+                    <div id="feature-carousel" class="relative w-full aspect-video">
+                        <div class="carousel-slide absolute inset-0 translate-x-full opacity-0 pointer-events-none transition-all duration-700" data-carousel-slide>
+                            <img src="/assets/img/1%20(1).png" alt="POS dashboard overview" class="w-full h-full object-cover">
+                        </div>
+                        <div class="carousel-slide absolute inset-0 translate-x-full opacity-0 pointer-events-none transition-all duration-700" data-carousel-slide>
+                            <img src="/assets/img/1%20(2).png" alt="Inventory management screen" class="w-full h-full object-cover">
+                        </div>
+                        <div class="carousel-slide absolute inset-0 translate-x-full opacity-0 pointer-events-none transition-all duration-700" data-carousel-slide>
+                            <img src="/assets/img/1%20(3).png" alt="Sales analytics view" class="w-full h-full object-cover">
+                        </div>
+                        <div class="carousel-slide absolute inset-0 translate-x-full opacity-0 pointer-events-none transition-all duration-700" data-carousel-slide>
+                            <img src="/assets/img/1%20(4).png" alt="Customer management panel" class="w-full h-full object-cover">
+                        </div>
+                        <div class="carousel-slide absolute inset-0 translate-x-full opacity-0 pointer-events-none transition-all duration-700" data-carousel-slide>
+                            <img src="/assets/img/1%20(5).png" alt="Supplier and purchase tools" class="w-full h-full object-cover">
+                        </div>
+                        <div class="carousel-slide absolute inset-0 translate-x-full opacity-0 pointer-events-none transition-all duration-700" data-carousel-slide>
+                            <img src="/assets/img/1%20(6).png" alt="Reports and insights dashboard" class="w-full h-full object-cover">
+                        </div>
+                        <div class="carousel-slide absolute inset-0 translate-x-full opacity-0 pointer-events-none transition-all duration-700" data-carousel-slide>
+                            <img src="/assets/img/1%20(7).png" alt="Multi-location inventory view" class="w-full h-full object-cover">
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold text-primary mb-4 flex items-center">
-                        <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
-                        Inventory & Warehouses
-                    </h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li>• Stock transfers</li>
-                        <li>• Quantity alerts</li>
-                        <li>• Barcode printing</li>
-                        <li>• Multi-warehouse support</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold text-primary mb-4 flex items-center">
-                        <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
-                        Business Management
-                    </h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li>• Purchases & returns</li>
-                        <li>• Customers & suppliers</li>
-                        <li>• Accounting & payments</li>
-                        <li>• Roles & permissions</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold text-primary mb-4 flex items-center">
-                        <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
-                        Reports & Insights
-                    </h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li>• Sales & profit reports</li>
-                        <li>• Inventory reports</li>
-                        <li>• Customer analytics</li>
-                        <li>• Supplier performance</li>
-                    </ul>
+                <button type="button" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 text-primary hover:bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition" data-carousel-prev>
+                    <span class="sr-only">Previous</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 text-primary hover:bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition" data-carousel-next>
+                    <span class="sr-only">Next</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+                <div class="flex justify-center mt-6 gap-2">
+                    <button type="button" class="w-3 h-3 rounded-full bg-gray-300 transition" data-carousel-dot="0" aria-pressed="false"></button>
+                    <button type="button" class="w-3 h-3 rounded-full bg-gray-300 transition" data-carousel-dot="1" aria-pressed="false"></button>
+                    <button type="button" class="w-3 h-3 rounded-full bg-gray-300 transition" data-carousel-dot="2" aria-pressed="false"></button>
+                    <button type="button" class="w-3 h-3 rounded-full bg-gray-300 transition" data-carousel-dot="3" aria-pressed="false"></button>
+                    <button type="button" class="w-3 h-3 rounded-full bg-gray-300 transition" data-carousel-dot="4" aria-pressed="false"></button>
+                    <button type="button" class="w-3 h-3 rounded-full bg-gray-300 transition" data-carousel-dot="5" aria-pressed="false"></button>
+                    <button type="button" class="w-3 h-3 rounded-full bg-gray-300 transition" data-carousel-dot="6" aria-pressed="false"></button>
                 </div>
             </div>
         </div>
@@ -359,10 +381,10 @@
     </section>
 
     <!-- Final CTA -->
-    <section class="py-24 bg-gradient-to-br from-primary to-blue-900 text-white">
+    <section class="py-24 bg-linear-to-br from-primary to-blue-900 text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-5xl font-bold mb-6">Run Your Business Smarter with Posly</h2>
-            <p class="text-xl text-blue-100 mb-10">Join thousands of businesses already growing with Posly</p>
+            <h2 class="text-5xl font-bold mb-6">Run Your Business Smarter with TradeSimple</h2>
+            <p class="text-xl text-blue-100 mb-10">Join thousands of businesses already growing with TradeSimple</p>
             <div class="flex flex-wrap justify-center gap-4">
                 <button class="bg-secondary text-white px-10 py-5 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition shadow-xl hover:shadow-2xl">
                     Start Now
@@ -379,7 +401,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <h3 class="text-white text-xl font-bold mb-4">Posly</h3>
+                    <h3 class="text-white text-xl font-bold mb-4">TradeSimple</h3>
                     <p class="text-sm">All-in-One POS & Inventory Management for Modern Businesses</p>
                 </div>
                 <div>
@@ -411,7 +433,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-sm">&copy; 2025 Posly. All rights reserved.</p>
+                <p class="text-sm">&copy; 2025 TradeSimple. All rights reserved.</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
                     <a href="#" class="hover:text-white transition">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -432,5 +454,124 @@
             </div>
         </div>
     </footer>
+    <script>
+        (() => {
+            const root = document.getElementById('feature-carousel');
+            if (!root) {
+                return;
+            }
+
+            const slides = Array.from(root.querySelectorAll('[data-carousel-slide]'));
+            const dots = Array.from(document.querySelectorAll('[data-carousel-dot]'));
+            const prev = document.querySelector('[data-carousel-prev]');
+            const next = document.querySelector('[data-carousel-next]');
+            let index = 0;
+            let timer = null;
+            let isAnimating = false;
+
+            const applySlideState = (slide, state) => {
+                slide.classList.remove('translate-x-full', '-translate-x-full', 'translate-x-0', 'opacity-0', 'opacity-100');
+                if (state == 'active') {
+                    slide.classList.add('translate-x-0', 'opacity-100');
+                    slide.classList.remove('pointer-events-none');
+                } else if (state == 'next') {
+                    slide.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+                } else {
+                    slide.classList.add('-translate-x-full', 'opacity-0', 'pointer-events-none');
+                }
+            };
+
+            const show = (nextIndex, direction) => {
+                if (isAnimating || nextIndex == index) {
+                    return;
+                }
+
+                isAnimating = true;
+
+                const current = index;
+                const incoming = nextIndex;
+                const forward = direction == 'next';
+
+                slides.forEach((slide, slideIndex) => {
+                    if (slideIndex === incoming) {
+                        applySlideState(slide, forward ? 'next' : 'prev');
+                        slide.setAttribute('aria-hidden', 'false');
+                    } else {
+                        slide.setAttribute('aria-hidden', slideIndex === current ? 'false' : 'true');
+                    }
+                });
+
+                requestAnimationFrame(() => {
+                    slides.forEach((slide, slideIndex) => {
+                        if (slideIndex === incoming) {
+                            applySlideState(slide, 'active');
+                        } else if (slideIndex === current) {
+                            applySlideState(slide, forward ? 'prev' : 'next');
+                        } else {
+                            applySlideState(slide, slideIndex < incoming ? 'prev' : 'next');
+                        }
+                    });
+                });
+
+                dots.forEach((dot, dotIndex) => {
+                    const active = dotIndex == nextIndex;
+                    dot.classList.toggle('bg-primary', active);
+                    dot.classList.toggle('bg-gray-300', !active);
+                    dot.setAttribute('aria-pressed', active ? 'true' : 'false');
+                });
+
+                index = nextIndex;
+
+                window.setTimeout(() => {
+                    isAnimating = false;
+                }, 750);
+            };
+
+            const nextSlide = () => show((index + 1) % slides.length, 'next');
+            const prevSlide = () => show((index - 1 + slides.length) % slides.length, 'prev');
+
+            const start = () => {
+                if (timer) {
+                    clearInterval(timer);
+                }
+                timer = setInterval(nextSlide, 5000);
+            };
+
+            if (!slides.length) {
+                return;
+            }
+
+            slides.forEach((slide, slideIndex) => {
+                applySlideState(slide, slideIndex === 0 ? 'active' : 'next');
+                slide.setAttribute('aria-hidden', slideIndex === 0 ? 'false' : 'true');
+            });
+            show(0, 'next');
+            start();
+
+            if (next) {
+                next.addEventListener('click', () => {
+                    nextSlide();
+                    start();
+                });
+            }
+
+            if (prev) {
+                prev.addEventListener('click', () => {
+                    prevSlide();
+                    start();
+                });
+            }
+
+            dots.forEach((dot) => {
+                dot.addEventListener('click', () => {
+                    const nextIndex = Number(dot.dataset.carouselDot);
+                    if (!Number.isNaN(nextIndex)) {
+                        show(nextIndex, nextIndex > index ? 'next' : 'prev');
+                        start();
+                    }
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
